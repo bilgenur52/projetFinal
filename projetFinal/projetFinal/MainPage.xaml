@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="projetFinal.MainPage">
+<ScrollView> <!--Barre de glissage-->
+        <ScrollView Orientation="Horizontal">
+
+            <Grid>
+                <StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Mode de commande:" TextColor="Red" VerticalOptions="Center" FontAttributes="Bold"/>
+                        <RadioButton Content="manuel" CheckedChanged="mode_manuelle_checked" ></RadioButton>
+                        <RadioButton Content="automatique" IsChecked="True" CheckedChanged="mode_auto_checked" x:Name="choixauto"></RadioButton>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <!--    <Label Text="Message recu :" TextColor="Blue"/>
+                    <Label Text ="SERVER" x:Name="message_server" TextColor="CornflowerBlue"/>-->
+                    </StackLayout>
+                    <StackLayout></StackLayout>
+                    <Label Text="Commande ton robot YOUPI !" TextColor="DeepPink" HorizontalTextAlignment="Center" FontSize="20"/>
+                    <StackLayout></StackLayout>
+                    <Button Text="Supprimer la trajectoire" TextColor="White" HorizontalOptions="End" BackgroundColor="Red" Clicked="Button_supprime" x:Name="Supprime"/>
+                    <StackLayout Orientation="Vertical"  >
+                        <StackLayout Orientation="Horizontal">
+                                                                                        
+                            <ImageButton Source="tournerrobotd.png" Clicked="tournerd_auto"  WidthRequest="300" HeightRequest="200"  x:Name="TR_a"></ImageButton>
+                            <ImageButton Source="tournerrobotg.png" Clicked="tournerg_auto" WidthRequest="300" HeightRequest="200" x:Name="TR_a1" ></ImageButton>
+                            <ImageButton Source="leverlepaule.png" Clicked="leverep_auto" WidthRequest="300" HeightRequest="200" x:Name="LE_a" ></ImageButton>
+                            <ImageButton Source="baisserlepaule.png"  Clicked="baisserep_auto" WidthRequest="300" HeightRequest="200" x:Name="BE_a"></ImageButton>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <ImageButton Source="pliercoude.png" Clicked="pliercoude_auto" WidthRequest="300" HeightRequest="200" x:Name="PC_a"></ImageButton>
+                            <ImageButton Source="depliercoude.png" Clicked="depliercoude_auto" WidthRequest="300" HeightRequest="200" x:Name="DC_a" ></ImageButton>
+                            <ImageButton Source="monterpoigne.png" Clicked="monterpoigne_auto" WidthRequest="300" HeightRequest="200" x:Name="TM_a"></ImageButton>
+                            <ImageButton Source="baisserpoigne.png" Clicked="baisserpoigne_auto" WidthRequest="300" HeightRequest="200" x:Name="TM_a1" ></ImageButton>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <ImageButton Source="tournerpinced.png" Clicked="tournerdpince_auto" WidthRequest="300" HeightRequest="200" x:Name="TP_a"></ImageButton>
+                            <ImageButton Source="tournerpinceg.png" Clicked="tournergpince_auto" WidthRequest="300" HeightRequest="200" x:Name="TP_a1" ></ImageButton>
+                            <ImageButton Source="saisirpince3.png" Clicked="saisirpince_auto" WidthRequest="300" HeightRequest="200" x:Name="SP_a"></ImageButton>
+                            <ImageButton Source="lacherpince3.png" Clicked="lacherpince_auto" WidthRequest="300" HeightRequest="200" x:Name="LP_a"></ImageButton>
+                        </StackLayout>
+                    </StackLayout >
+                    
+                        <Button Text="Valider la trajectoire" HorizontalOptions="CenterAndExpand" Clicked="Button_automatique" x:Name="Valide"/>
+                        <!-- Clicked="Button_add"bouton auto a ajouter dans une liste  x:Name="framebloc"-->
+                    <StackLayout></StackLayout>
+
+
+                    <Label Text="Commande manuelle" TextColor="Black" HorizontalTextAlignment="Center" FontSize="21" x:Name="text_manuel" />
+                    <StackLayout></StackLayout>
+                    <!--remettre la frame si pb ici-->
+                        <Frame  HeightRequest="270" HorizontalOptions="Center"  >
+                        <StackLayout Orientation="Vertical" >
+                            <StackLayout Orientation="Horizontal">
+                                <Button Text="Tourner le robot+" TextColor="White" Pressed="Button_tournerobot" Released="Button_released" BackgroundColor="DeepPink"  x:Name="TR"/>
+                                <Button Text="Tourner le robot-" TextColor="White" Pressed="Button_tournerobot1" Released="Button_released" BackgroundColor="DeepPink" x:Name="TR1"/>
+
+                                <Button Text="Monter l'epaule"  TextColor="White" Pressed="Button_monter_epaule" Released="Button_released" BackgroundColor="ForestGreen" x:Name="LE" />
+                                <Button Text="Baisser l'epaule" TextColor="White" Pressed="Button_baisser_epaule" Released="Button_released" BackgroundColor="ForestGreen" x:Name="BE"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Button Text="Plier le coude" TextColor="White" Pressed="Button_plier_coude" Released="Button_released" BackgroundColor="DodgerBlue" x:Name="PC"/>
+                                <Button Text="Déplier le coude" TextColor="White" Pressed="Button_deplier_coude" Released="Button_released" BackgroundColor="DodgerBlue" x:Name="DC"/>
+                                <Button Text="Monter la poignée"  Pressed="Button_tourner_poignee" Released="Button_released" BackgroundColor="LightGray" x:Name="TM"/>
+                                <Button Text="Baisser la poignée"  Pressed="Button_tourner_poignee1" Released="Button_released" BackgroundColor="LightGray" x:Name="TM1"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Button Text="Tourner la pince+"  Pressed="Button_tourner_pince" Released="Button_released" BackgroundColor="LightGray" x:Name="TP"/>
+                                <Button Text="Tourner la pince-" Pressed="Button_tourner_pince1" Released="Button_released" BackgroundColor="LightGray" x:Name="TP1"/>
+                                <Button Text="Saisir la pince"  Pressed="Button_saisir_pince" Released="Button_released" BackgroundColor="LightGray" x:Name="SP"/>
+                                <Button Text="Lâcher la pince"  Pressed="Button_lacher_pince1" Released="Button_released" BackgroundColor="LightGray" x:Name="LP" VerticalOptions="Start" HorizontalOptions="Start"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Button Text="Revenir au point de départ"  WidthRequest="100" x:Name="RD"/>
+                            </StackLayout>
+                            <Label Text="Cliquer sur le mode manuel en cas de blocage" x:Name="texteinfo"></Label>
+                        </StackLayout>
+                  </Frame>
+                </StackLayout>
+           
+            </Grid>
+            
+        </ScrollView>
+    </ScrollView>
+</ContentPage>
